@@ -8,7 +8,8 @@ export default defineConfig([
   tseslint.configs.recommended,
   {
     rules: {
-      indent: ["warn", 2],
+      indent: ["warn", 2, { SwitchCase: 1 }],
+
     }
   }
 ]);

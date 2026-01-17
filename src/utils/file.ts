@@ -1,4 +1,9 @@
 import fs from 'node:fs';
+import * as glob from 'glob';
+
+export function findFiles(pattern: string) {
+  return glob.sync(pattern, { ignore: 'node_modules/**' });
+}
 
 export function processEachFile(filePathList: string[], callback: (filePath: string, content: string) => void) {
   filePathList.forEach((filePath) => {

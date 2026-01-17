@@ -10,21 +10,20 @@ program
 
 program
   .command("check")
-  .description("检查文章是否符合规范")
-  .option("--type <type>", "指定检查类型，可选值：article, code")
-  .option("--path <path>", "指定文章所在目录")
-  .action((options) => {
-    const { type, path } = options;
-
+  .description("检查代码或文章")
+  .argument("<type>", "指定检查类型，可选值：article, code")
+  .option("--path <path>", "指定代码或文章所在目录")
+  .action((type, options) => {
+    const { path = "src" } = options;
     switch (type) {
-    case "article":
-      checkArticle(`${path}/**/*.{md,mdx}`);
-      break;
-    case "code":
-      checkCode(`${path}/**/*.{js,jsx,ts,tsx}`);
-      break;
-    default:
-      console.log("请指定检查类型");
+      case "article":
+        checkArticle(`${path}/**/*.{md,mdx}`);
+        break;
+      case "code":
+        checkCode(`${path}/**/*.{js,jsx,ts,tsx}`);
+        break;
+      default:
+        console.log("请指定检查类型");
     }
   });
 
