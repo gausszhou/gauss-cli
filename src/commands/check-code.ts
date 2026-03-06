@@ -221,7 +221,7 @@ export function checkCode(pattern: string) {
     },
   });
   
-  const avgLinesAll = (stats.totalLines / filePathList.length).toFixed(1);
+  const avgLinesAll = (stats.codeLines / filePathList.length).toFixed(1);
   languageTable.push([
     'ALL',
     filePathList.length.toString(),
@@ -236,7 +236,7 @@ export function checkCode(pattern: string) {
   ]);
   
   sortedLanguages.forEach(([language, data]) => {
-    const avgLines = (data.lines / data.files).toFixed(1);
+    const avgLines = (data.codeLines / data.files).toFixed(1);
     languageTable.push([
       language,
       data.files.toString(),
