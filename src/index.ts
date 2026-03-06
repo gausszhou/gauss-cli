@@ -2,6 +2,7 @@
 import { program } from "commander";
 import { checkCode } from "./commands/check-code.js";
 import { checkArticle } from "./commands/check-article.js";
+import { checkXSS } from "./commands/check-xss.js";
 
 program
   .name('gauss-cli')
@@ -11,7 +12,7 @@ program
 program
   .command("check")
   .description("检查代码或文章")
-  .argument("<type>", "指定检查类型，可选值：article, code")
+  .argument("<type>", "指定检查类型，可选值：article, code, xss")
   .option("--path <path>", "指定代码或文章所在目录")
   .action((type, options) => {
     const { path = "src" } = options;
@@ -22,8 +23,11 @@ program
       case "code":
         checkCode(`${path}/**/*.{js,jsx,ts,tsx}`);
         break;
+      case "xss":
+        checkXSS(`${path}/**/*.{js,jsx,ts,tsx,vue,html}`);
+        break;
       default:
-        console.log("请指定检查类型");
+        console.log("请指定检查类型: article, code, xss");
     }
   });
 
