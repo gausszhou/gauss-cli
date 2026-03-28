@@ -14,7 +14,7 @@ program
   .option("--path <path>", "指定代码所在目录", "src")
   .action((options) => {
     const { path } = options;
-    checkCode(`${path}/**/*.{js,jsx,ts,tsx,json,css,scss,html,md,mdx,vue}`);
+    checkCode(`${path}/**/*.{js,jsx,ts,tsx,json,css,scss,sass,less,html,md,mdx,vue,c,h,cpp,cc,cxx,hpp,hh,hxx,java,go,py,pyw,rs,php,rb,swift,kt,kts,scala,cs,vb,sh,bash,zsh,ps1,psm1,sql,yaml,yml,xml,toml,ini,conf,cfg,lua,pl,pm,r,R,dart,ex,exs,erl,hs,clj,fs,fsx,ml,mli,jl,m,groovy,gradle,Makefile,makefile,mk}`);
   });
 
 program
