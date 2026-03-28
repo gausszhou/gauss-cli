@@ -1,4 +1,4 @@
-# Gauss-CLI
+# CodeCheck
 
 一个基于 TypeScript 的命令行工具。
 
@@ -13,7 +13,7 @@
 ## 安装
 
 ```bash
-npm install -g gauss-cli
+npm install -g codecheck
 ```
 
 ## 使用
@@ -21,8 +21,8 @@ npm install -g gauss-cli
 ### 基本语法
 
 ```bash
-gauss <command> [options]
-gauss check article --path packages # 检查文章是否符合规范
-gauss check code --path packages # 检查代码是否符合规范
-gauss check xss --path packages # 检查 XSS 漏洞
+codecheck <command> [options]
+codecheck check article --path packages # 检查文章是否符合规范
+codecheck check code --path packages # 检查代码是否符合规范
+codecheck check xss --path packages # 检查 XSS 漏洞
 ```

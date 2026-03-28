@@ -5,7 +5,7 @@ import { checkArticle } from "./commands/check-article.js";
 import { checkXSS } from "./commands/check-xss.js";
 
 program
-  .name('gauss-cli')
+  .name('codecheck')
   .version('1.0.0')
   .description('An example CLI tool');
 

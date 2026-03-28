@@ -1,11 +1,11 @@
 {
-  "name": "gauss-cli",
+  "name": "codecheck",
   "version": "1.0.0",
   "description": "一个简单的命令行工具。",
   "main": "index.js",
   "type": "module",
   "bin": {
-    "gauss": "./dist/index.js"
+    "codecheck": "./dist/index.js"
   },
   "scripts": {
     "lint": "eslint src/**/*.ts *.ts",
