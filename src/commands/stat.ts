@@ -44,12 +44,11 @@ function getLanguage(filePath: string): string {
 function estimateTokens(content: string): number {
   const trimmedContent = content.trim();
   if (!trimmedContent) return 0;
-  
-  const words = trimmedContent.split(/\s+/).filter(word => word.length > 0);
-  const operators = trimmedContent.match(/[+\-*/%=<>!&|^~?:;,{}()[\]]/g) || [];
-  const identifiers = trimmedContent.match(/[a-zA-Z_$][a-zA-Z0-9_$]*/g) || [];
-  
-  return Math.max(words.length, Math.floor((operators.length + identifiers.length) * 0.8));
+
+  const cjkChars = (trimmedContent.match(/[\u4e00-\u9fff]/g) || []).length;
+  const otherChars = trimmedContent.length - cjkChars;
+
+  return Math.round(cjkChars * 0.6 + otherChars * 0.3);
 }
 
 function detectFunctions(content: string): Array<{ name: string; lines: number }> {
