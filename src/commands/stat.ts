@@ -152,6 +152,10 @@ function analyzeCodeLines(content: string): { codeLines: number; commentLines: n
   return { codeLines, commentLines, blankLines };
 }
 
+/**
+ * 统计代码行数、字符数、Token 数等信息
+ * @param pattern - glob 模式，用于匹配待统计的文件
+ */
 export function checkCode(pattern: string) {
   const filePathList = findFiles(pattern);
   

@@ -113,6 +113,10 @@ const USER_INPUT_PATTERNS = [
   },
 ];
 
+/**
+ * 检查代码中的 XSS 安全漏洞
+ * @param pattern - glob 模式，用于匹配待检查的文件
+ */
 export function checkXSS(pattern: string) {
   const filePathList = findFiles(pattern);
   const issues: XSSIssue[] = [];
